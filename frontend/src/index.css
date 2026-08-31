@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ==========================================================================
+   PULSE CORE — Modern Clinical Technology Design System Tokens
+   ========================================================================== */
+:root {
+  --navy-primary: #163A5F;
+  --navy-dark: #0F2F4D;
+  --primary-blue: #1F4E79;
+  --clinical-teal: #0E7490;
+  --live-cyan: #06B6D4;
+  --ai-purple: #6D5CE7;
+  --bg-main: #F5F7FA;
+  --surface: #FFFFFF;
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  --border-subtle: #E2E8F0;
+  --border-strong: #CBD5E1;
+  --success: #15803D;
+  --warning: #B45309;
+  --danger: #B91C1C;
+  --critical-bg: #FEF2F2;
+  --info-bg: #EFF6FF;
+}
+
+@layer base {
+  body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    min-height: 100vh;
+  }
+
+  code, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  ::selection {
+    background-color: var(--clinical-teal);
+    color: #FFFFFF;
+  }
+}
+
+/* ==========================================================================
+   Enterprise Scrollbar
+   ========================================================================== */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--clinical-teal);
+}
+
+/* ==========================================================================
+   Clinical Card & Panel Tokens
+   ========================================================================== */
+.clinical-card {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+  transition: box-shadow 0.15s ease, border-color 0.15s ease;
+}
+.clinical-card:hover {
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.06), 0 2px 4px rgba(15, 23, 42, 0.02);
+  border-color: var(--border-strong);
+}
+
+.clinical-panel {
+  background: var(--surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 12px;
+}
+
+/* ==========================================================================
+   Live Real-Time Telemetry Pulse
+   ========================================================================== */
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.15); }
+}
+.animate-live-pulse {
+  animation: live-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes live-cyan-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(6, 182, 212, 0.5); }
+  70% { box-shadow: 0 0 0 6px rgba(6, 182, 212, 0); }
+}
+.animate-cyan-beacon {
+  animation: live-cyan-pulse 2s infinite;
+}
